@@ -1,8 +1,47 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@font-face {
+  font-family: Karla-Bold;
+  src: url(Karla-Bold.ttf);
 }
 
-a {
-  color: #00B7FF;
+@font-face {
+  font-family: Karla-Light;
+  src: url(Karla-Light.ttf);
 }
+
+@font-face {
+  font-family: Karla-Regular;
+  src: url(Karla-Regular.ttf);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Karla-Regular;
+}
+
+/* admin login page */
+
+#admin-login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f3f4f5;
+}
+
+#admin-login form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 450px;
+}
+
+#admin-login h1 {
+  text-align: center;
+}
+
+/* end. admin login page */
