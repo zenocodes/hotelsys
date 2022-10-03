@@ -28,8 +28,10 @@ app.use(session({
 // constant check if logged in
 app.use((req, res, next) => {
   if (req.session.user === undefined) {
+    res.locals.isLoggedIn = false
     console.log('user not logged in')
   } else {
+    res.locals.isLoggedIn = true
     console.log('user logged in')
   }
   next()
