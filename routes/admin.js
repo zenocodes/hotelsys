@@ -1,4 +1,5 @@
 var express = require('express');
+const app = require('../app');
 var router = express.Router();
 
 const adminCredentials = {
@@ -8,7 +9,11 @@ const adminCredentials = {
 
 /* admin dashboard */
 router.get('/', function(req, res, next) {
-  res.render('admin/dashboard', {title: 'Dashboard'});
+  if (res.locals.isLoggedIn) {
+    res.render('admin/dashboard', {title: 'Dashboard'});
+  } else {
+    res.redirect('/admin/login')
+  }
 });
 
 // display admin login page
@@ -40,6 +45,14 @@ router.post('/login', (req, res, next) => {
     res.render('admin/login', {title: 'Login', admin: admin, error: true, message: message})
   }
 
+})
+
+// logout functionality
+router.get('/logout', (req, res) => {
+  // destroy session
+  req.session.destroy(() => {
+    res.redirect('/admin/login')
+  })
 })
 
 module.exports = router;
