@@ -81,6 +81,21 @@
   border-color:  #e07a0c;
 }
 
+#admin-login a {
+  text-decoration: none;
+  color: #383838;
+  font-size: 20px;
+  padding: 10px 0;
+  display: flex;
+  width: max-content;
+}
+
+#admin-login a img {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
 /* end. admin login page */
 
 /* nav */
@@ -103,7 +118,6 @@ header {
 #logo img {
   width: 32px;
   height: 32px;
-  margin-right: 8px;
 }
 
 nav a {
@@ -149,10 +163,32 @@ nav a:hover {
   font-size: 20px;
   padding: 10px;
   border-bottom: 1px solid #383838;
+  display: flex;
+  align-items: center;
 }
 
 #sidebar li:hover {
   background-color: #dddfe0;
 }
+
+#sidebar li img, #admin-console img {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+#admin-console {
+  text-decoration: none;
+  font-size: 20px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  color: #383838;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+
 
 /* end. homepage */
