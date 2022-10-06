@@ -18,11 +18,15 @@ router.get('/', function(req, res, next) {
 
 // display admin login page
 router.get('/login', (req, res, next) => {
-  const admin = {
-    email: '',
-    password: ''
-  }
-  res.render('admin/login', {title: 'Login', admin: admin, error: false})
+    if (res.locals.isLoggedIn) {
+      res.redirect('/admin')
+    } else {
+      const admin = {
+        email: '',
+        password: ''
+      }
+      res.render('admin/login', {title: 'Login', admin: admin, error: false})
+    }
 })
 
 // submit admin login page
