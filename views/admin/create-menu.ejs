@@ -1,25 +1,27 @@
-<% include('../partials/header') %>
+<%- include('../partials/header') %>
 
     <%- include('../partials/nav') %>
 
-    <form action="/admin/create" method="post" enctype="multipart/form-data">
-        <h1>Create Menu</h1>
-        <label for="">Category</label>
-        <select name="category" id="" required>
-            <option>-- Select Category --</option>
-            <option value="Starter">Starter</option>
-            <option value="Main Dish">Main Dish</option>
-            <option value="Dessert">Dessert</option>
-        </select>
-        <label for="">Name</label>
-        <input type="text" name="name" id="" required>
-        <label for="">Description</label>
-        <input type="text" name="description" id="" required>
-        <label for="">Picture</label>
-        <input type="file" name="picture" id="" required>
-        <label for="">Price</label>
-        <input type="text" name="price" id="" required>
-        <input type="submit" value="Save">
-    </form>
+    <main class="container" id="create-menu">
+        <form action="/admin/create" method="post" enctype="multipart/form-data">
+            <h1>Create Menu</h1>
+            <label for="">Category</label>
+            <select name="category" id="" required>
+                <option>-- Select Category --</option>
+                <option value="Starter">Starter</option>
+                <option value="Main Dish">Main Dish</option>
+                <option value="Dessert">Dessert</option>
+            </select>
+            <label for="">Name</label>
+            <input type="text" name="name" id="" required>
+            <label for="">Description</label>
+            <input type="text" name="description" id="" required>
+            <label for="">Picture</label>
+            <input type="file" name="picture" id="" required>
+            <label for="">Price</label>
+            <input type="text" name="price" id="" required>
+            <input type="submit" value="Save">
+        </form>
+    </main>
 
 <% include('../partials/header') %>
