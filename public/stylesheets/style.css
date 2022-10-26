@@ -208,6 +208,27 @@ nav a:hover {
 
 }
 
+.item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu div {
+  width: 250px;
+  height: 250px;
+  border: 1px solid black;
+}
+
+.menu img {
+  width: 100%;
+}
+
 #order {
   height: 35vh;
   background-color: #dddfe0;
