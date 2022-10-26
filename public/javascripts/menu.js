@@ -8,6 +8,6 @@ btns.forEach(btn => {
         let item = document.querySelector(`#${id}`)
 
         items.forEach(item => item.style.display = 'none')
-        item.style.display = 'block'
+        item.style.display = 'flex'
     })
 })
