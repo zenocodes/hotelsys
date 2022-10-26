@@ -16,13 +16,40 @@
         <div id="menu-list">
             <div id="items">
                 <div id="starter" class="item">
-                    <h1>Starter</h1>
+                    <% menuItems.filter(menu => menu.category === 'Starter').forEach(menu => { %>
+
+                        <div class="menu">
+                            <div><img src="/uploads/<%= menu.picture %>" alt=""></div>
+                            <h2><%= menu.name %></h2>
+                            <p><%= menu.description %></p>
+                            <h3>KES <%= menu.price %></h3>
+                        </div>
+
+                    <% }) %>
                 </div>
                 <div id="main-dish" class="item">
-                    <h1>Main Dish</h1>
+                    <% menuItems.filter(menu => menu.category === 'Main Dish').forEach(menu => { %>
+
+                        <div class="menu">
+                            <div><img src="/uploads/<%= menu.picture %>" alt=""></div>
+                            <h2><%= menu.name %></h2>
+                            <p><%= menu.description %></p>
+                            <h3>KES <%= menu.price %></h3>
+                        </div>
+
+                    <% }) %>
                 </div>
                 <div id="dessert" class="item">
-                    <h1>Dessert</h1>
+                    <% menuItems.filter(menu => menu.category === 'Dessert').forEach(menu => { %>
+
+                        <div class="menu">
+                           <div><img src="/uploads/<%= menu.picture %>" alt=""></div>
+                            <h2><%= menu.name %></h2>
+                            <p><%= menu.description %></p>
+                            <h3>KES <%= menu.price %></h3>
+                        </div>
+
+                    <% }) %>
                 </div>
             </div>
             <div id="order">
