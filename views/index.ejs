@@ -43,7 +43,7 @@
                     <% menuItems.filter(menu => menu.category === 'Dessert').forEach(menu => { %>
 
                         <div class="menu">
-                           <div><img src="/uploads/<%= menu.picture %>" alt=""></div>
+                            <div><img src="/uploads/<%= menu.picture %>" alt=""></div>
                             <h2><%= menu.name %></h2>
                             <p><%= menu.description %></p>
                             <h3>KES <%= menu.price %></h3>
@@ -53,7 +53,10 @@
                 </div>
             </div>
             <div id="order">
+                <h3>Your order: </h3>
+                <ol id="order-list">
 
+                </ol>
             </div>
         </div>
     </main>
