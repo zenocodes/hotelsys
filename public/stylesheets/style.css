@@ -255,6 +255,34 @@ nav a:hover {
   margin-left: 20px;
 }
 
+/* #order-list .icon {
+  color: #F51720;
+  font-family: Karla-Bold;
+} */
+
+#order-list li {
+  font-size: 21px;
+}
+
+#order div {
+  margin-top: 20px;
+}
+
+#order #amount {
+  margin-bottom: 15px;
+}
+
+#order a {
+  text-decoration: none;
+  background-color: #e07a0c;
+  border: 1px solid #e07a0c;
+  color: #fff;
+  font-family: Karla-Bold;
+  border-radius: 5px;
+  padding: 4px 8px;
+}
+
+
 /* end. homepage */
 
 /* create menu */
