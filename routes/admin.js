@@ -91,10 +91,22 @@ router.post('/create', uploads.single('picture'), (req, res) => {
       menu.price
     ],
     (error, results) => {
-      console.log('menu item successfully added')
-      res.redirect('/admin')
+      res.redirect('/admin/menu')
     }
   )
+})
+
+router.get('/menu', (req, res) => {
+  if (res.locals.isLoggedIn) {
+    let sql = 'SELECT * FROM menu'
+    connection.query(
+      sql, (error, results) => {
+        res.render('admin/menu', {menuItems: results})
+      }
+    )
+  } else {
+    res.redirect('/admin/login')
+  }
 })
 
 module.exports = router;
