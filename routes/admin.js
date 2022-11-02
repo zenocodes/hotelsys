@@ -109,4 +109,26 @@ router.get('/menu', (req, res) => {
   }
 })
 
+// get form to edit menu
+router.get('/edit/:id', (req, res) => {
+  if (res.locals.isLoggedIn) {
+    let sql = 'SELECT * FROM menu WHERE id = ?'
+    connection.query(
+      sql,
+      [ parseInt(req.params.id) ], 
+      (error, results) => {
+        res.render('admin/edit-menu', {menu: results[0]})
+      }
+    )
+    
+  } else {
+    res.redirect('/admin/login')
+  }
+})
+
+// update menu
+router.post('/edit/:id', (req, res) => {
+
+})
+
 module.exports = router;
