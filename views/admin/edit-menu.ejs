@@ -1,0 +1,55 @@
+<%- include('../partials/header') %>
+
+    <%- include('../partials/nav') %>
+
+    <main class="container" id="create-menu">
+        <form action="/admin/edit/<%= menu.id %>" method="post" enctype="multipart/form-data">
+            <h1>Edit Menu</h1>
+            <label for="">Category</label>
+            <select name="category" id="" required>
+                <option>-- Select Category --</option>
+                <option value="Starter">Starter</option>
+                <option value="Main Dish">Main Dish</option>
+                <option value="Dessert">Dessert</option>
+            </select>
+            <label for="">Name</label>
+            <input type="text" name="name" id="" value="<%= menu.name %>" required>
+            <label for="">Description</label>
+            <input type="text" name="description" id="" value="<%= menu.description %>" required>
+            <label for="">Price</label>
+            <input type="text" name="price" id="" value="<%= menu.price %>" required>
+            <input type="hidden" name="picture" value="<%= menu.picture %>">
+            <img src="/uploads/<%= menu.picture %>" alt="">
+            <div id="change-pic">
+                <label for="">Would you like to change the picture?</label>
+                <input type="radio" name="changePic" id="" value="No" checked> No
+                <input type="radio" name="changePic" id="" value="Yes"> Yes
+            </div>
+            <div id="new-picture">
+                <label for="">Picture</label>
+                <input type="file" name="picture" id="" value="<%=  %>" required>
+            </div>
+            
+            <input type="submit" value="Save">
+        </form>
+    </main>
+
+    <script>
+        const radioBtns = document.querySelectorAll('input[name="changePic"]')
+        let changePicDiv = document.querySelector('#change-pic')
+
+        radioBtns.forEach(radioBtn => {
+            radioBtn.addEventListener('change', () => {
+                if (radioBtn.value === 'Yes') {
+                    changePicDiv.previousElementSibling.style.display = 'none'
+                    changePicDiv.nextElementSibling.style.display = 'block'
+                } else {
+                    changePicDiv.previousElementSibling.style.display = 'block'
+                    changePicDiv.nextElementSibling.style.display = 'none'
+                }
+            })
+        })
+
+    </script>
+
+<%- include('../partials/header') %></input>
