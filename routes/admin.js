@@ -127,7 +127,35 @@ router.get('/edit/:id', (req, res) => {
 })
 
 // update menu
-router.post('/edit/:id', (req, res) => {
+router.post('/edit/:id', uploads.single('picture'), (req, res) => {
+  const menu = {
+    category: req.body.category,
+    name: req.body.name,
+    description: req.body.description,
+    picture: req.body.picture,
+    price: req.body.price
+  }
+
+  if (req.file) {
+    menu.picture = req.file.filename
+  }
+
+  let sql = 'UPDATE menu SET category = ?, name = ?, description = ?, picture = ?, price = ? WHERE id = ?'
+
+  connection.query(
+    sql,
+    [
+      menu.category,
+      menu.name,
+      menu.description,
+      menu.picture,
+      menu.price,
+      parseInt(req.params.id)
+    ],
+    (error, results) => {
+      res.redirect('/admin/menu')
+    }
+  )
 
 })
 
