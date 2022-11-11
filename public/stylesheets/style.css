@@ -274,7 +274,7 @@ nav a:hover {
   margin-bottom: 15px;
 }
 
-#order a {
+#order input[type="submit"] {
   text-decoration: none;
   background-color: #e07a0c;
   border: 1px solid #e07a0c;
