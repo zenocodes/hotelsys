@@ -59,7 +59,11 @@
                 </ol>
                 <div>
                     <h3 id="amount"></h3>
-                    <a href="">Make Order</a>
+                    <form action="/order" method="post">
+                        <input type="hidden" name="items">
+                        <input type="hidden" name="amount">
+                        <input type="submit" value="Make Order">
+                    </form>
                 </div>
             </div>
         </div>
