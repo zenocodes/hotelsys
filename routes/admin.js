@@ -159,4 +159,16 @@ router.post('/edit/:id', uploads.single('picture'), (req, res) => {
 
 })
 
+// delete a menu item
+router.post('/delete/:id', (req, res) => {
+  let sql = 'DELETE FROM menu WHERE id = ?'
+  connection.query(
+    sql,
+    [ parseInt(req.params.id) ],
+    (error, results) => {
+      res.redirect('/admin/menu')
+    }
+  )
+})
+
 module.exports = router;
