@@ -48,6 +48,14 @@ const checkOrderList = () => {
         let prices = document.querySelectorAll('.price')
         prices.forEach(price => total += parseInt(price.textContent))
         amount.textContent = `Total: KES ${total}`
+        let itemList = document.querySelector('input[name="items"]')
+        let items = []
+        for (const li of orderList.children) {
+            items.push(li.firstChild.data.toString().split(' : ')[0])
+        }
+        itemList.value = items
+        let amountHidden = document.querySelector('input[name="amount"]')
+        amountHidden.value = total
     }
     
 }

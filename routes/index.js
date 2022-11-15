@@ -12,9 +12,23 @@ router.get('/', function(req, res, next) {
   )
 });
 
-// login page
-router.get('/login', (req, res, next) => {
-  res.send('login page from index routes')
+// make order
+router.post('/order', (req, res, next) => {
+  const order = {
+    items: req.body.items.split(','),
+    amount: parseInt(req.body.amount)
+  }
+  let sql = 'INSERT INTO orders (items, amount) VALUES (JSON_ARRAY(?),?)'
+  connection.query(
+    sql, 
+    [
+      [...order.items],
+      order.amount
+    ], 
+    (error, results) => {
+      res.redirect('/')
+    }
+  )
 })
 
 
