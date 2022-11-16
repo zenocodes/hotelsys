@@ -13,7 +13,14 @@ const adminCredentials = {
 /* admin dashboard */
 router.get('/', function(req, res, next) {
   if (res.locals.isLoggedIn) {
-    res.render('admin/dashboard', {title: 'Dashboard'});
+
+    let sql = 'SELECT * FROM orders WHERE cleared = "NO" ORDER BY order_on DESC'
+    connection.query(
+      sql, (error, results) => {
+        res.render('admin/dashboard', {orders: results});
+      }
+    )
+    
   } else {
     res.redirect('/admin/login')
   }
@@ -167,6 +174,29 @@ router.post('/delete/:id', (req, res) => {
     [ parseInt(req.params.id) ],
     (error, results) => {
       res.redirect('/admin/menu')
+    }
+  )
+})
+
+// complete order
+router.post('/order/:id', (req, res) => {
+  let sql = 'UPDATE orders SET cleared = "YES" WHERE id = ?'
+  connection.query(
+    sql,
+    [parseInt(req.params.id)], 
+    (error, results) => {
+      res.redirect('/admin')
+    }
+  )
+})
+
+// order history
+router.get('/order/history', (req, res) => {
+  let sql = 'SELECT * FROM orders WHERE cleared = "YES"'
+  connection.query(
+    sql, 
+    (error, results) => {
+      res.render('admin/history', {orders: results})
     }
   )
 })
