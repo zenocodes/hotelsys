@@ -323,3 +323,21 @@ nav a:hover {
 }
 
 /* end. admin menu */
+
+
+/* admin dashboard */
+
+#order-table {
+  width: 100%;
+}
+
+#order-table thead {
+  background-color: #e07a0c;
+  color: #fff;
+}
+
+#order-table .record {
+  text-align: center;
+}
+
+/* end. admin dashboard */
